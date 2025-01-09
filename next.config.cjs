@@ -1,18 +1,15 @@
 const isGithubActions = process.env.GITHUB_ACTIONS || false;
 
-let assetPrefix = '';
-let basePath = '';
+const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Portfolio'; // Use the repo name
+const assetPrefix = isGithubActions ? `/${repo}/` : '';
+const basePath = isGithubActions ? `/${repo}` : '';
 
-if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Portfolio';
-  assetPrefix = `/${repo}/`;
-  basePath = `/${repo}`;
-}
-
-export default {
+module.exports = {
+  output: 'export', // Enables static export for Next.js
   assetPrefix: assetPrefix,
   basePath: basePath,
   images: {
-    unoptimized: true, // Disable Image Optimization for GitHub Pages
+    unoptimized: true,
   },
+  trailingSlash: true,
 };
