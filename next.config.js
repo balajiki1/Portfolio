@@ -1,34 +1,18 @@
-/**
- * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
- * for Docker builds.
- */
-await import("./src/env.js");
-import WithPWA from "next-pwa";
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
 
-const withPWA = WithPWA({
-  dest: "public",
-  disable: process.env.NODE_ENV === "development",
-  register: true,
-  scope: "/",
-  sw: "service-worker.js",
-});
+let assetPrefix = '';
+let basePath = '';
 
-/**
- * @type {import('next').NextConfig}
- */
-// @ts-ignore
-const config = withPWA({
-  reactStrictMode: true,
+if (isGithubActions) {
+  const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Portfolio'; // Use the repo name
+  assetPrefix = `/${repo}/`;
+  basePath = `/${repo}`;
+}
 
-  /**
-   * If you are using `appDir` then you must comment the below `i18n` config out.
-   *
-   * @see https://github.com/vercel/next.js/issues/41980
-   */
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
+module.exports = {
+  assetPrefix: assetPrefix,
+  basePath: basePath,
+  images: {
+    unoptimized: true, // Disable Image Optimization for GitHub Pages
   },
-});
-
-export default config;
+};
