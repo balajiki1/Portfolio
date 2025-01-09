@@ -11,6 +11,8 @@ const basePath = isGithubActions ? `/${repoName}` : '';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export', // Ensures static export
+  assetPrefix: assetPrefix, // Set the asset prefix
+  basePath: basePath, // Set the base path
   images: {
     unoptimized: true, // Disable image optimization
   },
