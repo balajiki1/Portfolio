@@ -13,7 +13,7 @@ const basePath = isGithubActions ? `/${repoName}` : '';
 
 const nextConfig = {
   output: 'export',
-  distDir: 'out', // Ensure static files are output here
+  distDir: '.next', // Ensure static files are output here
   assetPrefix: assetPrefix,
   basePath: basePath,
   images: {
