@@ -1,15 +1,14 @@
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
 
-const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Portfolio';
-const assetPrefix = isGithubActions ? `/${repo}/` : '';
-const basePath = isGithubActions ? `/${repo}` : '';
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Portfolio';
+const assetPrefix = isGithubActions ? `/${repoName}/` : '';
+const basePath = isGithubActions ? `/${repoName}` : '';
 
 module.exports = {
-  output: 'export', // Enables static export
   assetPrefix: assetPrefix,
   basePath: basePath,
   images: {
-    unoptimized: true, // Disable image optimization
+    unoptimized: true,
   },
-  trailingSlash: true, // Ensures proper routing
+  trailingSlash: true,
 };
