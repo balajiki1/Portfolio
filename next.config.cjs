@@ -10,13 +10,15 @@ const basePath = isGithubActions ? `/${repoName}` : '';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Ensures static export
-  assetPrefix: assetPrefix, // Set the asset prefix
-  basePath: basePath, // Set the base path
+  output: 'export',
+  distDir: 'out', // Ensure static files are output here
+  assetPrefix: assetPrefix,
+  basePath: basePath,
   images: {
-    unoptimized: true, // Disable image optimization
+    unoptimized: true,
   },
-  trailingSlash: true, // Ensures routes end with a slash
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
+
