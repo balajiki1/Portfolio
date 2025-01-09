@@ -1,3 +1,4 @@
+// Check if the project is being built on GitHub Actions
 const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
 
 // Extract the repository name for proper GitHub Pages handling
@@ -7,25 +8,13 @@ const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Portfolio';
 const assetPrefix = isGithubActions ? `/${repoName}/` : '';
 const basePath = isGithubActions ? `/${repoName}` : '';
 
-module.exports = {
-  // Configure asset prefix and base path for GitHub Pages
-  assetPrefix,
-  basePath,
-
-  // Ensure static files are exported
-  output: 'export',
-
-  // Disable image optimization since GitHub Pages doesn't support dynamic image processing
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export', // Ensures static export
   images: {
-    unoptimized: true,
+    unoptimized: true, // Disable image optimization
   },
-
-  // Add trailing slashes to routes for better static compatibility
-  trailingSlash: true,
-
-  // Optional: Enable React strict mode (useful for debugging in development)
-  reactStrictMode: true,
-
-  // Optional: Enable swcMinify for faster builds and optimized performance
-  swcMinify: true,
+  trailingSlash: true, // Ensures routes end with a slash
 };
+
+module.exports = nextConfig;
