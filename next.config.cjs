@@ -4,12 +4,12 @@ let assetPrefix = '';
 let basePath = '';
 
 if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Portfolio'; // Use the repo name
+  const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Portfolio';
   assetPrefix = `/${repo}/`;
   basePath = `/${repo}`;
 }
 
-module.exports = {
+export default {
   assetPrefix: assetPrefix,
   basePath: basePath,
   images: {
