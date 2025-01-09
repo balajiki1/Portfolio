@@ -10,6 +10,7 @@ const basePath = isGithubActions ? `/${repoName}` : '';
 
 /** @type {import('next').NextConfig} */
 
+
 const nextConfig = {
   output: 'export',
   distDir: 'out', // Ensure static files are output here
