@@ -7,8 +7,9 @@ const basePath = isGithubActions ? `/${repoName}` : '';
 module.exports = {
   assetPrefix: assetPrefix,
   basePath: basePath,
+  output: 'export', // Enables static export
   images: {
-    unoptimized: true,
+    unoptimized: true, // Disables image optimization
   },
   trailingSlash: true,
 };
