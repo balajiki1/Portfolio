@@ -7,7 +7,7 @@ const basePath = isGithubActions ? `/${repo}` : '';
 export default {
   output: 'export', // Enables static export for Next.js
   assetPrefix: assetPrefix,
-  basePath,
+  basePath : basePath,
   images: {
     unoptimized: true, // Disable image optimization
   },
