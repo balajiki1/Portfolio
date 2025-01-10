@@ -1,19 +1,18 @@
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true'; // Ensure this checks for a boolean value
 
 const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Portfolio';
 const assetPrefix = isGithubActions ? `/${repo}/` : '';
 const basePath = isGithubActions ? `/${repo}` : '';
-export default {
 
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   output: 'export', // Enables static export for Next.js
   assetPrefix: assetPrefix,
   basePath: basePath,
   images: {
     unoptimized: true, // Disable image optimization
   },
-  trailingSlash: true, // Ensure proper routing
+  trailingSlash: true, // Ensures proper routing
 };
 
-
-
-
+export default nextConfig;
