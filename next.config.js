@@ -1,11 +1,10 @@
-const isGithubActions = process.env.GITHUB_ACTIONS === 'true'; // Ensure this checks for a boolean value
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
 
 const repo = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'Portfolio';
 const assetPrefix = isGithubActions ? `/${repo}/` : '';
 const basePath = isGithubActions ? `/${repo}` : '';
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+export default {
   output: 'export', // Enables static export for Next.js
   assetPrefix: assetPrefix,
   basePath,
@@ -14,5 +13,3 @@ const nextConfig = {
   },
   trailingSlash: true, // Ensures proper routing
 };
-
-export default nextConfig;
