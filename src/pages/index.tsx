@@ -185,9 +185,9 @@ const projects = [
 
 const workExperience = [
   {
-    role: "Full Stack Developer",
+    role: "Software Engineer",
     company: "Tibura Solutions India Pvt Ltd",
-    duration: "Dec 2022 – May 2024",
+    duration: "Nov 2021 – May 2024",
     location: "Chennai, India",
     logo: tiburalogo,
     description: [
@@ -201,31 +201,17 @@ const workExperience = [
     ],
   },
   {
-    role: "Frontend Developer",
+    role: "Software ENgineer Intern",
     company: "Tibura Solutions India Pvt Ltd",
-    duration: "Oct 2021 – Dec 2022",
+    duration: "Oct 2021 – Nov 2021",
     location: "Chennai, India",
     logo: tiburalogo,
     description: [
-      "Implemented micro-frontend architecture with Webpack Module Federation, enabling 25% faster feature deployment.",
-      "Optimized performance with lazy loading and code splitting, achieving 40% faster load times.",
-      "Developed reusable UI components and integrated RESTful APIs, reducing redundancy by 30%.",
-      "Collaborated with UX designers using Figma to create user-friendly interfaces, boosting satisfaction.",
-      "Worked on cross-platform mobile apps with the Ionic framework, reducing time-to-market by 20%.",
+      "Gained hands-on experience in web development using HTML, CSS, and JavaScript.",
+      "Developed responsive and dynamic web applications using Angular and React.",
+      "Explored cloud deployment technologies using AWS for development.",
     ],
   },
-  // {
-  //   role: "Software Developer Trainee",
-  //   company: "Tibura Solutions India Pvt Ltd",
-  //   duration: "Oct 2021 – Nov 2021",
-  //   location: "Chennai, India",
-  //   logo: tiburalogo,
-  //   description: [
-  //     "Gained hands-on experience in web development using HTML, CSS, and JavaScript.",
-  //     "Developed responsive and dynamic web applications using Angular and React.",
-  //     "Explored cloud deployment technologies using AWS for development.",
-  //   ],
-  // },
 ];
 
 
